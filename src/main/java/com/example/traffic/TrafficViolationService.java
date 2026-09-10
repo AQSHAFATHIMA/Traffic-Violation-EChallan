@@ -154,9 +154,11 @@ public class TrafficViolationService {
                         .getSeverity()
                         .getMultiplier();
 
-        int previousViolations =
+int previousViolations =
+        Math.max(
+                0,
                 countPreviousViolations(
-                        violation.getVehicleNumber());
+                        violation.getVehicleNumber()) - 1);
 
         /*
          * Repeated violation penalty:
